@@ -1,25 +1,43 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import MoviesContainer from './component/MoviesContainer'
+import MovieForm from './component/MovieForm'
+import Nav from './component/Nav'
 
 class App extends Component {
+  state = {
+    movies: [],
+    isClicked: false
+  }
+
+  handleNav = () => {
+    this.setState({
+      isClicked: false
+    })
+  }
+
+  handleDetail = () => {
+    this.setState({
+      isClicked: true
+    })
+  }
+
+
+  componentDidMount(){
+    fetch('http://localhost:3000/movies')
+    .then(resp => resp.json())
+    .then(parsedResp => {
+      this.setState({
+        movies: parsedResp
+      })
+    })
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="MoviePlz">
+        <Nav handleClick={this.handleNav}/>
+        <MoviesContainer movies={this.state.movies} isClicked={this.state.isClicked} handleDetail={this.handleDetail}/>
       </div>
     );
   }
