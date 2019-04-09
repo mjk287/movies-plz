@@ -1,0 +1,116 @@
+/* iframe {
+  visibility: hidden
+} */
+
+// .movieContainer {
+//   display: inline-block;
+// }
+
+nav {
+  background-color: rgba(117, 135, 163, 0.3);
+  position: fixed;
+  color: white;
+  font-size: 2em;
+  width: 100%;
+  z-index: 10;
+  padding-left: 5%
+}
+
+.formContainer {
+  position: relative;
+  text-align: center;
+  background-image: url('https://www.dga.org//-/media/Images/Landscape-Images/DGAQuarterly/1201Winter2012/ScreeningRoom-RagingBullLandscape.ashx?as=1&h=630&mh=630&mw=1200&w=630&hash=BE8CFA916844F1BC6F59A9BF6377D708613371C2?t=12345');
+  background-size: 100% 100%;
+  background-color: rgba(0,0,0,0.5);
+  height: 100vh;
+
+  form {
+    position: relative;
+  }
+
+  //------ input stuff
+
+  input[type='text'], textarea, label, input[type='submit'] {
+    display: block;
+    margin: auto;
+    margin-bottom: 20px;
+    color: white;
+    &:focus {
+      outline-width: 0
+    }
+  }
+
+  input[type='text'], textarea {
+    background: transparent;
+    border: 0;
+    border-bottom: white 3px solid;
+    transition: all 1s;
+    width: 40%;
+    animation: 1s appearInput;
+    &:focus {
+      width: 100%
+    }
+  }
+
+  textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    animation: 1s appearTextarea;
+
+  }
+
+  // label {
+  //   transform: translateY(20px);
+  // }
+
+  @keyframes appearInput {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+    100% {
+      opacity: 100%;
+      width: 40%
+    }
+  }
+
+  @keyframes appearTextarea {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+    100% {
+      opacity: 100%;
+      width: 100%
+    }
+  }
+  //---------------
+}
+
+.vertical-aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.aligner-item {
+  max-width: 50%
+}
+
+
+
+
+
+
+
+.overlay {
+  position: absolute; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 0;
+}

@@ -3,7 +3,7 @@ import React from 'react'
 const Nav = (props) => {
   return (
     <nav>
-      <p onClick={props.handleClick}>Home</p>
+      <a onClick={props.handleClick}>Home</a>
     </nav>
   )
 }
